@@ -30,4 +30,12 @@ public class SimpleMenuTest {
                 .isEqualTo(menu.select("Покормить собаку").get());
         menu.forEach(i -> System.out.println(i.getNumber() + i.getName()));
     }
+
+    @Test
+    public void whenSelectThenPerformAction() {
+        Menu menu = new SimpleMenu();
+        ActionDelegate action = () -> System.out.println("Action performed");
+        menu.add(Menu.ROOT, "Сходить в магазин", action);
+        menu.select("Сходить в магазин").ifPresent(Menu.MenuItemInfo::getActionDelegate);
+    }
 }
