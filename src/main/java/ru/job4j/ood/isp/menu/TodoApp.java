@@ -11,8 +11,7 @@ public class TodoApp {
         Printer printer = new Printer();
         Scanner scanner = new Scanner(System.in);
 
-        boolean cycle = true;
-        while (cycle) {
+        while (true) {
             System.out.println(""" 
                 Меню:
                 1. Добавить элемент в корень меню.
@@ -27,9 +26,10 @@ public class TodoApp {
                 case 2 -> addChildItem(menu, scanner);
                 case 3 -> selectItem(menu, scanner);
                 case 4 -> printer.print(menu);
-                case 5 -> cycle = false;
+                case 5 -> {
+                    return;
+                }
                 default -> System.out.println("Неверный ввод. Попробуйте снова.");
-
             }
         }
     }
