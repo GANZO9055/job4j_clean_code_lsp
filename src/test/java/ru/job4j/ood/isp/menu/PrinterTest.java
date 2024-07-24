@@ -28,9 +28,9 @@ class PrinterTest {
         System.setOut(originalOut);
 
         String expectedOutput = "1.test1\n"
-                + "1.1.test1.1\n"
-                + "1.1.1.test1.1.1\n"
-                + "1.2.test2.1\n"
+                + "----1.1.test1.1\n"
+                + "--------1.1.1.test1.1.1\n"
+                + "----1.2.test2.1\n"
                 + "2.test2\n";
 
         assertThat(outContent.toString()).isEqualToIgnoringNewLines(expectedOutput);
